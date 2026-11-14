@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16.4
+        env:
+          POSTGRES_USER: mirevion
+          POSTGRES_PASSWORD: change-me
+          POSTGRES_DB: mirevion_test
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd "pg_isready -U mirevion -d mirevion_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7.2-alpine
+        ports:
+          - "6379:6379"
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Instalar dependências Python
+        working-directory: ./apps/saas
+        run: uv sync --frozen
+
+      - name: Executar Ruff
+        working-directory: ./apps/saas
+        run: uv run ruff check .
+
+      - name: Executar testes Django
+        working-directory: ./apps/saas
+        env:
+          DATABASE_URL: postgres://mirevion:change-me@localhost:5432/mirevion_test
+          REDIS_URL: redis://localhost:6379/0
+          DJANGO_SETTINGS_MODULE: config.settings.test
+        run: uv run pytest
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependências
+        working-directory: ./apps/web
+        run: npm ci
+
+      - name: Lint
+        working-directory: ./apps/web
+        run: npm run lint
+
+  mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.19.x"
+          channel: stable
+
+      - name: Obter dependências
+        working-directory: ./apps/mobile
+        run: flutter pub get
+
+      - name: Analisar código
+        working-directory: ./apps/mobile
+        run: flutter analyze

@@ -1,0 +1,40 @@
+from .base import settings
+
+# Testes
+DEBUG = False
+ALLOWED_HOSTS = ["testserver", "localhost", "127.0.0.1"]
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "mirevion_test",
+        "USER": "mirevion",
+        "PASSWORD": "change-me",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+}
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_EAGER_PROPAGATES = True
+
+# Reexportar para compatibilidade com Django
+SECRET_KEY = settings.SECRET_KEY
+INSTALLED_APPS = settings.INSTALLED_APPS
+MIDDLEWARE = settings.MIDDLEWARE
+ROOT_URLCONF = settings.ROOT_URLCONF
+TEMPLATES = settings.TEMPLATES
+WSGI_APPLICATION = settings.WSGI_APPLICATION
+ASGI_APPLICATION = settings.ASGI_APPLICATION
+AUTH_PASSWORD_VALIDATORS = settings.AUTH_PASSWORD_VALIDATORS
+LANGUAGE_CODE = settings.LANGUAGE_CODE
+TIME_ZONE = settings.TIME_ZONE
+USE_I18N = settings.USE_I18N
+USE_TZ = settings.USE_TZ
+STATIC_URL = settings.STATIC_URL
+DEFAULT_AUTO_FIELD = settings.DEFAULT_AUTO_FIELD
+REST_FRAMEWORK = settings.REST_FRAMEWORK
+SPECTACULAR_SETTINGS = settings.SPECTACULAR_SETTINGS
+SIMPLE_JWT = settings.SIMPLE_JWT
+CORS_ALLOWED_ORIGINS = settings.CORS_ALLOWED_ORIGINS
+CSRF_TRUSTED_ORIGINS = settings.CSRF_TRUSTED_ORIGINS
+CELERY_BROKER_URL = settings.CELERY_BROKER_URL
+CELERY_RESULT_BACKEND = settings.CELERY_RESULT_BACKEND

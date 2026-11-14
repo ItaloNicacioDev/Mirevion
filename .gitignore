@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# uv
+uv.lock
+
+# Django
+*.local.py
+.env
+.env.*.local
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm/
+.deployment/
+.next/
+dist/
+build/
+*.tsbuildinfo
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/package_config.json
+*.iml
+.android/gradle.properties
+.ios/Flutter/Generated.xcconfig
+.ios/Flestore/
+*.lock
+pubspec.lock
+
+# Docker
+.dockerignore
+
+# Logs
+*.log
+
+# OS
+.vs/
+
+# macOS
+._*
