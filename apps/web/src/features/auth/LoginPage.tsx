@@ -45,24 +45,24 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Marca esquerda — visível apenas em telas largas */}
-      <div className="hidden lg:flex lg:w-1/3 bg-primary flex-col justify-between items-start p-12 text-white">
+      <div className="hidden lg:flex lg:w-1/2 bg-primary flex-col justify-between items-start p-10 lg:p-16 text-primary-foreground">
         <div className="flex flex-col gap-8">
           <div>
-            <div className="font-display text-h1 font-semibold tracking-tight mb-2">Mirevion</div>
-            <p className="body-sm opacity-90 leading-relaxed max-w-xs">
+            <div className="font-display text-h1 font-semibold tracking-tight mb-3">Mirevion</div>
+            <p className="body-sm opacity-80 leading-relaxed max-w-sm">
               Plataforma de gestão para pequenas e médias empresas.
               Controle financeiro, folha de pagamento e recursos humanos em um só lugar.
             </p>
           </div>
-          <div className="flex items-center gap-3 pt-8 border-t border-white/20">
-            <div className="w-2 h-2 rounded-full bg-white"></div>
-            <span className="body-sm opacity-80">Sessão segura · criptografada</span>
+          <div className="flex items-center gap-3 mt-12">
+            <div className="w-2 h-2 rounded-full bg-primary-foreground"></div>
+            <span className="body-sm opacity-70">Sessão segura · criptografada</span>
           </div>
         </div>
-        <div className="mt-12">
-          <div className="flex items-center gap-2 text-sm opacity-70">
+        <div className="mt-20">
+          <div className="flex items-center gap-2 text-sm opacity-60">
             <span className="font-label">© 2026 Mirevion</span>
-            <span className="text-white/50">·</span>
+            <span className="opacity-50">·</span>
             <span className="font-label">Plataforma Empresarial</span>
           </div>
         </div>
@@ -96,9 +96,9 @@ export default function LoginPage() {
                   <button
                     key={admin.id}
                     onClick={() => handleSelectAdmin(admin.email)}
-                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md border transition-all duration-200 ${isSelected ? "bg-accent text-white border-accent shadow-sm shadow-accent/20" : "bg-card text-muted-foreground border-border hover:bg-muted/50 hover:border-border/50"}`}
+                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md border transition-all duration-200 ${isSelected ? "bg-accent text-accent-foreground border-accent shadow-sm shadow-accent/20" : "bg-card text-muted-foreground border-border hover:bg-muted/50 hover:border-border/50"}`}
                   >
-                    <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-white" : "bg-transparent border border-current"}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-accent-foreground" : "bg-transparent border border-current"}`} />
                     {admin.first_name} {admin.last_name}
                   </button>
                 );
@@ -156,7 +156,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 bg-accent text-on-accent rounded-md font-medium hover:bg-accent/90 focus:ring-2 focus:ring-ring focus:ring-offset-1 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-accent text-accent-foreground rounded-md font-medium hover:bg-accent/90 focus:ring-2 focus:ring-ring focus:ring-offset-1 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
