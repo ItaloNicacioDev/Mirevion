@@ -38,7 +38,7 @@ export default function DashboardPage() {
         description="Acompanhe os indicadores da sua organização. Dados atualizados em tempo real."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card) => (
           <div key={card.title} className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
             <div className="flex items-start justify-between">
