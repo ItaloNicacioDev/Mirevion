@@ -1,50 +1,72 @@
 import PageHeader from "@/components/PageHeader";
+import { AlertTriangle, Plus, TrendingUp, Wallet } from "lucide-react";
 
 export default function DespesasPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <PageHeader
         title="Despesas"
         description="Registro, classificação e aprovação de despesas da organização."
         action={
-          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-on-accent text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
-            Nova despesa
+          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
+            Nova despesa <Plus className="w-4 h-4" />
           </button>
         }
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="card-default rounded-lg border border-border shadow-sm p-6">
-          <div className="body-sm text-muted-foreground mb-2">Despesas este mês</div>
-          <div className="font-display text-xl font-semibold text-foreground">R$ 0,00</div>
-          <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-            <span>Itens lançados</span>
-            <span>0</span>
+        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
+                <Wallet className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <div className="body-sm text-muted-foreground mb-1">Despesas este mês</div>
+                <div className="body-sm text-muted-foreground">Itens lançados</div>
+              </div>
+            </div>
+            <div className="font-display text-xl font-semibold text-foreground">R$ 0,00</div>
           </div>
         </div>
 
-        <div className="card-default rounded-lg border border-border shadow-sm p-6">
-          <div className="body-sm text-muted-foreground mb-2">Pendentes de aprovação</div>
-          <div className="font-display text-xl font-semibold text-warning">R$ 0,00</div>
-          <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-            <span>Aguardando</span>
-            <span>0</span>
+        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-warning-light flex items-center justify-center">
+                <AlertTriangle className="w-5 h-5 text-warning" />
+              </div>
+              <div>
+                <div className="body-sm text-muted-foreground mb-1">Pendentes de aprovação</div>
+                <div className="body-sm text-muted-foreground">Aguardando liberação</div>
+              </div>
+            </div>
+            <div className="font-display text-xl font-semibold text-warning">R$ 0,00</div>
           </div>
         </div>
 
-        <div className="card-default rounded-lg border border-border shadow-sm p-6">
-          <div className="body-sm text-muted-foreground mb-2">Pagas este mês</div>
-          <div className="font-display text-xl font-semibold text-success">R$ 0,00</div>
-          <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-            <span>Baixadas</span>
-            <span>0</span>
+        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-success-light flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-success" />
+              </div>
+              <div>
+                <div className="body-sm text-muted-foreground mb-1">Pagas este mês</div>
+                <div className="body-sm text-muted-foreground">Baixadas</div>
+              </div>
+            </div>
+            <div className="font-display text-xl font-semibold text-success">R$ 0,00</div>
           </div>
         </div>
       </div>
 
-      <div className="card-default rounded-lg border border-border shadow-sm p-6">
-        <div className="flex items-center justify-between mb-4">
+      <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-h3 font-semibold text-foreground">Despesas recentes</h2>
+          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
+            Nova despesa <Plus className="w-3 h-3" />
+          </button>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
@@ -63,7 +85,11 @@ export default function DespesasPage() {
                 <td className="py-3 text-muted-foreground">Nenhuma despesa registrada</td>
                 <td className="py-3 text-muted-foreground">—</td>
                 <td className="py-3 text-right text-muted-foreground">—</td>
-                <td className="py-3 text-muted-foreground">—</td>
+                <td className="py-3">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
+                    Sem dados
+                  </span>
+                </td>
               </tr>
             </tbody>
           </table>
