@@ -49,7 +49,7 @@ export default function DashboardPage() {
           <div key={card.title} className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-xl ${card.color.split(" ")[0]} flex items-center justify-center`}>
+                <div className={`w-10 h-10 rounded-2xl ${card.color.split(" ")[0]} flex items-center justify-center`}>
                   <card.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
