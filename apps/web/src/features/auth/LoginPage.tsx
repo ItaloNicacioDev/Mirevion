@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authService } from "@/services/auth";
 import { Eye, EyeOff } from "lucide-react";
+import { ADMIN_ACCOUNTS } from "@/lib/auth-mock";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -9,7 +10,13 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedAdmin, setSelectedAdmin] = useState<{ email: string; label: string } | null>(null);
   const navigate = useNavigate();
+
+  const handleSelectAdmin = (adminEmail: string) => {
+    setEmail(adminEmail);
+    setSelectedAdmin({ email: adminEmail, label: adminEmail.split("@")[0] });
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,9 +26,10 @@ export default function LoginPage() {
       const { data } = await authService.login(email, password);
       localStorage.setItem("mirevion_token", data.access);
       localStorage.setItem("mirevion_refresh", data.refresh);
+      localStorage.setItem("mirevion_user", JSON.stringify(data.user));
       navigate("/");
     } catch (err: any) {
-      setError(err.response?.data?.detail || "Erro ao fazer login");
+      setError(err.message || "Erro ao fazer login");
     } finally {
       setLoading(false);
     }
@@ -57,6 +65,35 @@ export default function LoginPage() {
               </div>
             )}
 
+            {/* Seletor de admin (equipes de RH podem ter várias pessoas) */}
+            <div className="mb-6">
+              <label className="block text-label text-foreground mb-2 font-medium">
+                Acessando como
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {ADMIN_ACCOUNTS.map((admin) => {
+                  const isSelected = selectedAdmin?.email === admin.email || email === admin.email;
+                  return (
+                    <button
+                      key={admin.id}
+                      onClick={() => handleSelectAdmin(admin.email)}
+                      className={`px-3 py-2 text-sm rounded-md border transition-colors ${
+                        isSelected
+                          ? "bg-accent text-on-accent border-accent"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80 border-border"
+                      }`}
+                    >
+                      {admin.first_name} {admin.last_name}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Selecione o administrador que está acessando. Equipes de RH podem
+                ter várias pessoas com logins independentes.
+              </p>
+            </div>
+
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
                 <label className="block text-label text-foreground mb-2 font-medium" htmlFor="login-email">
@@ -68,7 +105,11 @@ export default function LoginPage() {
                   autoComplete="email"
                   name="email"
                   spellCheck={false}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setSelectedAdmin(null);
+                  }}
                   className="w-full px-3 py-2.5 border border-border rounded-sm bg-card text-foreground focus:ring-2 focus:ring-ring focus:border-transparent outline-none transition-colors"
                   placeholder="seu@empresa.com"
                 />
@@ -115,6 +156,10 @@ export default function LoginPage() {
                 )}
               </button>
             </form>
+
+            <div className="mt-6 text-xs text-muted-foreground text-center">
+              Usuários de teste: admin@mirevion.com / rh@mirevion.com / financeiro@mirevion.com
+            </div>
           </div>
         </div>
       </div>
