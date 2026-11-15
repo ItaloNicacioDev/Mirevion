@@ -1,14 +1,24 @@
 import PageHeader from "@/components/PageHeader";
-import { Banknote, Plus, TrendingUp, Wallet } from "lucide-react";
+import { useToast } from "@/components/ToastProvider";
+import { ArrowRight, Banknote, CreditCard, Plus, TrendingUp, Wallet } from "lucide-react";
 
 export default function FinanceiroPage() {
+  const { toast } = useToast();
+
+  const handleNovaTransacao = () => {
+    toast("Transação criada", "Sua transação foi registrada com sucesso.", "success", 4000);
+  };
+
   return (
     <div className="space-y-8">
       <PageHeader
         title="Financeiro"
         description="Controle de receitas, despesas e saldo da sua organização."
         action={
-          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm">
+          <button
+            onClick={handleNovaTransacao}
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm"
+          >
             Nova transação <Plus className="w-4 h-4" />
           </button>
         }
@@ -64,7 +74,10 @@ export default function FinanceiroPage() {
       <div className="card-default rounded-xl border border-border shadow-sm p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-h3 font-semibold text-foreground">Transações recentes</h2>
-          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
+          <button
+            onClick={handleNovaTransacao}
+            className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+          >
             Nova transação <Plus className="w-3 h-3" />
           </button>
         </div>
