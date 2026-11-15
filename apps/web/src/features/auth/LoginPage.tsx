@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authService } from "@/services/auth";
 import { Eye, EyeOff } from "lucide-react";
@@ -11,6 +11,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedAdmin, setSelectedAdmin] = useState<{ email: string; label: string } | null>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +32,9 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     try {
-      const { data } = await authService.login(email, password);
+      const emailValue = emailRef.current?.value || email;
+      const passwordValue = passwordRef.current?.value || password;
+      const { data } = await authService.login(emailValue, passwordValue);
       localStorage.setItem("mirevion_token", data.access);
       localStorage.setItem("mirevion_refresh", data.refresh);
       localStorage.setItem("mirevion_user", JSON.stringify(data.user));
@@ -44,7 +48,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Marca esquerda — visível apenas em telas largas */}
       <div className="hidden lg:flex lg:w-1/2 bg-primary flex-col justify-between items-start p-10 lg:p-16 text-primary-foreground">
         <div className="flex flex-col gap-8">
           <div>
@@ -68,7 +71,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Formulário de login — centralizado */}
       <div className="flex-1 flex items-center justify-center p-6 lg:p-0">
         <div className="w-full max-w-md card-default rounded-xl border border-border shadow-sm p-8">
           <div className="flex flex-col gap-3 mb-8">
@@ -84,7 +86,6 @@ export default function LoginPage() {
             </div>
           )}
 
-          {/* Seletor de admin */}
           <div className="mb-6">
             <label className="block text-label text-foreground mb-2.5 font-medium">
               Acessando como
@@ -115,6 +116,7 @@ export default function LoginPage() {
                 E-mail
               </label>
               <input
+                ref={emailRef}
                 id="login-email"
                 type="email"
                 autoComplete="email"
@@ -134,6 +136,7 @@ export default function LoginPage() {
                 Senha
               </label>
               <input
+                ref={passwordRef}
                 id="login-password"
                 type="password"
                 autoComplete="current-password"
