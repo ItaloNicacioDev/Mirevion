@@ -336,7 +336,7 @@ export default function EmpresaRegistroPage() {
                   onChange={(e) => setFormData({ ...formData, estado: e.target.value.toUpperCase().substring(0, 2) })}
                   disabled={!podeEditar}
                   placeholder="SP"
-                  maxLength="2"
+                  maxLength={2}
                   className="w-full px-3.5 py-3 border border-border rounded-md bg-card text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-transparent outline-none transition-all duration-200"
                 />
               </div>
