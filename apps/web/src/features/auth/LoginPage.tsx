@@ -96,9 +96,9 @@ export default function LoginPage() {
                   <button
                     key={admin.id}
                     onClick={() => handleSelectAdmin(admin.email)}
-                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md border transition-all duration-200 ${isSelected ? "bg-accent text-on-accent border-accent shadow-sm shadow-accent/20" : "bg-card text-muted-foreground border-border hover:bg-muted/50 hover:border-border/50"}`}
+                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md border transition-all duration-200 ${isSelected ? "bg-accent text-white border-accent shadow-sm shadow-accent/20" : "bg-card text-muted-foreground border-border hover:bg-muted/50 hover:border-border/50"}`}
                   >
-                    <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-on-accent" : "bg-transparent border border-current"}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? "bg-white" : "bg-transparent border border-current"}`} />
                     {admin.first_name} {admin.last_name}
                   </button>
                 );
