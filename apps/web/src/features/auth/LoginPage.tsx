@@ -27,56 +27,95 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Mirevion</h1>
-        {error && (
-          <div className="mb-4 p-3 bg-red-50 text-red-700 rounded text-sm">
-            {error}
+    <div className="min-h-screen bg-background">
+      <div className="flex flex-col lg:flex-row h-full">
+        {/* Marca / contexto esquerdo */}
+        <div className="hidden lg:flex lg:w-1/3 bg-primary flex-col justify-center items-start p-12 text-on-primary">
+          <div className="font-display text-h1 font-semibold tracking-tight mb-6">
+            Mirevion
           </div>
-        )}
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              E-mail
-            </label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-mirevion-500 focus:border-mirevion-500 outline-none"
-              placeholder="seu@email.com"
-            />
+          <p className="body-md opacity-90 max-w-xs leading-relaxed">
+            Plataforma de gestão para pequenas e médias empresas. Controle
+            financeiro, folha de pagamento e recursos humanos em um só lugar.
+          </p>
+        </div>
+
+        {/* Formulário de login */}
+        <div className="flex-1 flex items-center justify-center p-8">
+          <div className="w-full max-w-md card-default rounded-lg border border-border shadow-sm p-8">
+            <div className="font-display text-h2 font-semibold text-foreground mb-2">
+              Bem-vindo de volta
+            </div>
+            <p className="body-sm text-muted-foreground mb-8">
+              Acesse sua organização com seu e-mail e senha.
+            </p>
+
+            {error && (
+              <div className="mb-6 p-3 rounded-md bg-red-50 text-red-700 text-sm border border-red-100">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div>
+                <label className="block text-label text-foreground mb-2 font-medium" htmlFor="login-email">
+                  E-mail
+                </label>
+                <input
+                  id="login-email"
+                  type="email"
+                  autoComplete="email"
+                  name="email"
+                  spellCheck={false}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2.5 border border-border rounded-sm bg-card text-foreground focus:ring-2 focus:ring-ring focus:border-transparent outline-none transition-colors"
+                  placeholder="seu@empresa.com"
+                />
+              </div>
+              <div className="relative">
+                <label className="block text-label text-foreground mb-2 font-medium" htmlFor="login-password">
+                  Senha
+                </label>
+                <input
+                  id="login-password"
+                  type="password"
+                  autoComplete="current-password"
+                  name="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2.5 border border-border rounded-sm bg-card text-foreground focus:ring-2 focus:ring-ring focus:border-transparent outline-none transition-colors pr-10"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                  className="absolute right-2 top-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" aria-hidden="true" /> : <Eye className="w-4 h-4" aria-hidden="true" />}
+                </button>
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 bg-accent text-on-accent rounded-md font-medium hover:bg-accent/90 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Entrando...
+                  </>
+                ) : (
+                  "Entrar"
+                )}
+              </button>
+            </form>
           </div>
-          <div className="relative">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Senha
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-mirevion-500 focus:border-mirevion-500 outline-none pr-10"
-              placeholder="••••••••"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
-            >
-              {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-            </button>
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-2 bg-mirevion-600 text-white rounded-md font-medium disabled:opacity-50 hover:bg-mirevion-500"
-          >
-            {loading ? "Entrando..." : "Entrar"}
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
