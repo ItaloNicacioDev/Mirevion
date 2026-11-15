@@ -7,6 +7,7 @@ import RHPage from "../features/rh/RHPage";
 import DespesasPage from "../features/despesas/DespesasPage";
 import OrganizacaoPage from "../features/organizacao/OrganizacaoPage";
 import EmpresaRegistroPage from "../features/organizacao/EmpresaRegistroPage";
+import IntegracaoPage from "../features/integracao/IntegracaoPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: "rh", element: <RHPage /> },
       { path: "despesas", element: <DespesasPage /> },
       { path: "organizacao", element: <OrganizacaoPage /> },
+      { path: "integracao", element: <IntegracaoPage /> },
     ],
   },
 ]);
