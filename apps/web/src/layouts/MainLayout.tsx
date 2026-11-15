@@ -25,7 +25,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-background">
       {/* Sidebar desktop */}
-      <nav className="hidden lg:flex lg:w-64 flex-col border-r border-border bg-card">
+      <nav className="hidden lg:flex lg:fixed lg:inset-y-0 lg:left-0 lg:z-20 lg:w-64 lg:border-r lg:border-border lg:bg-card lg:overflow-y-auto">
         <div className="p-6">
           <div className="font-display text-xl font-semibold text-foreground tracking-tight mb-8">
             Mirevion
@@ -57,9 +57,8 @@ export default function Layout() {
       </nav>
 
       {/* Conteúdo principal */}
-      <div className="flex-1 flex flex-col min-h-0">
-        {/* Header mobile + desktop top */}
-        <header className="sticky top-0 z-20 bg-card border-b border-border px-6 py-4 flex items-center justify-between shrink-0">
+      <div className="flex-1 lg:pl-64 min-h-0">
+        <main className="overflow-y-auto p-6 lg:p-8">
           <div className="flex items-center gap-3">
             <button
               className="lg:hidden p-2 text-muted-foreground hover:text-foreground rounded-sm hover:bg-muted"
@@ -81,7 +80,6 @@ export default function Layout() {
               Online
             </button>
           </div>
-        </header>
 
         <main className="flex-1 overflow-y-auto p-6 lg:p-8 shrink-0">
           <Outlet />
