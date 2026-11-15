@@ -1,14 +1,24 @@
 import PageHeader from "@/components/PageHeader";
+import { useToast } from "@/components/ToastProvider";
 import { Banknote, Calendar, Plus, User } from "lucide-react";
 
 export default function RHPage() {
+  const { toast } = useToast();
+
+  const handleNovoFuncionario = () => {
+    toast("Funcionário adicionado", "Novo colaborador cadastrado com sucesso.", "success", 4000);
+  };
+
   return (
     <div className="space-y-8">
       <PageHeader
         title="Recursos Humanos"
         description="Cadastro de funcionários, folha de pagamento e dados da equipe."
         action={
-          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm">
+          <button
+            onClick={handleNovoFuncionario}
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm"
+          >
             Novo funcionário <Plus className="w-4 h-4" />
           </button>
         }
@@ -64,7 +74,10 @@ export default function RHPage() {
       <div className="card-default rounded-xl border border-border shadow-sm p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-h3 font-semibold text-foreground">Funcionários</h2>
-          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
+          <button
+            onClick={handleNovoFuncionario}
+            className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+          >
             Novo funcionário <Plus className="w-3 h-3" />
           </button>
         </div>
