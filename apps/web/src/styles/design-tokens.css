@@ -4,7 +4,10 @@
   --color-card: #ffffff;
   --color-card-foreground: #3a3734;
   --color-primary: #1f3a5f;
+  --color-primary-light: #eef2f7;
   --color-on-primary: #ffffff;
+  --color-success-light: #f0fdf4;
+  --color-warning-light: #fffbeb;
   --color-secondary: #c9c3b8;
   --color-on-secondary: #3a3734;
   --color-accent: #b45309;
