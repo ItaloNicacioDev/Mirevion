@@ -121,7 +121,7 @@ components:
     textColor: "{colors.foreground}"
     rounded: "{rounded.sm}"
     padding: "8px 12px"
-    typography: "{typography.body_md}"
+    typography: "{typography.body-md}"
   card-default:
     backgroundColor: "{colors.card}"
     rounded: "{rounded.lg}"
