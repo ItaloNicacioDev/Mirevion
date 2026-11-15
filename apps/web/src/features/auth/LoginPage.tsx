@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authService } from "@/services/auth";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
