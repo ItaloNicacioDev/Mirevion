@@ -1,12 +1,12 @@
+import PageHeader from "@/components/PageHeader";
+
 export default function OrganizacaoPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-display text-h1 font-semibold text-foreground tracking-tight">Organização</h1>
-        <p className="body-sm text-muted-foreground mt-2">
-          Dados da sua empresa, CNPJ, usuários e configurações da conta.
-        </p>
-      </div>
+      <PageHeader
+        title="Organização"
+        description="Dados da sua empresa, CNPJ, usuários e configurações da conta."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="card-default rounded-lg border border-border shadow-sm p-6">
