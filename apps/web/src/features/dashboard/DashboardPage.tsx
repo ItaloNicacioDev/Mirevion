@@ -1,12 +1,18 @@
 import PageHeader from "@/components/PageHeader";
 import AnimatedLineChart from "@/components/AnimatedLineChart";
 import AnimatedBarChart from "@/components/AnimatedBarChart";
+import {
+  Wallet,
+  TrendingUp,
+  Clock,
+  Users,
+} from "lucide-react";
 
 const cards = [
-  { title: "Saldo disponível", value: "R$ 0,00", color: "text-primary", subtitle: "Disponível para uso imediato" },
-  { title: "Receitas este mês", value: "R$ 0,00", icon: "receitas", color: "text-success", subtitle: "Entradas registradas no período" },
-  { title: "Despesas pendentes", value: "R$ 0,00", icon: "despesas", color: "text-warning", subtitle: "Aguardando confirmação de pagamento" },
-  { title: "Funcionários ativos", value: "0", icon: "funcionarios", color: "text-foreground", subtitle: "Colaboradores com vínculo ativo" },
+  { title: "Saldo disponível", value: "R$ 0,00", icon: Wallet, color: "bg-primary text-white", subtitle: "Disponível para uso imediato" },
+  { title: "Receitas este mês", value: "R$ 0,00", icon: TrendingUp, color: "bg-success text-white", subtitle: "Entradas registradas no período" },
+  { title: "Despesas pendentes", value: "R$ 0,00", icon: Clock, color: "bg-warning text-white", subtitle: "Aguardando confirmação de pagamento" },
+  { title: "Funcionários ativos", value: "0", icon: Users, color: "bg-foreground text-white", subtitle: "Colaboradores com vínculo ativo" },
 ];
 
 const recentItems = [
@@ -43,13 +49,8 @@ export default function DashboardPage() {
           <div key={card.title} className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-lg bg-${card.color.split("/")[0] === "text-success" ? "success" : card.color.split("/")[0] === "text-warning" ? "warning" : card.color.split("/")[0] === "text-primary" ? "primary" : "foreground"}-light flex items-center justify-center`}>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {card.color === "text-primary" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2-3 .895-3-2 1.343-2 3-2z" />}
-                    {card.color === "text-success" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />}
-                    {card.color === "text-warning" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
-                    {card.color === "text-foreground" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />}
-                  </svg>
+                <div className={`w-10 h-10 rounded-xl ${card.color.split(" ")[0]} flex items-center justify-center`}>
+                  <card.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <div className="body-sm text-muted-foreground mb-1">{card.title}</div>
