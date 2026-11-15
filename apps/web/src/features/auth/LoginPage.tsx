@@ -49,7 +49,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="flex flex-col lg:flex-row h-screen">
-        {/* Marca esquerda - visível apenas em telas largas */}
+        {/* Marca esquerda - SOMENTE em telas grandes (lg+) */}
         <div className="hidden lg:flex lg:w-1/2 bg-primary flex-col justify-between items-start p-6 lg:p-16 text-primary-foreground order-2 lg:order-1">
           <div className="flex flex-col gap-8">
             <div>
@@ -73,15 +73,8 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Formulário de login - centralizado */}
+        {/* Formulário de login - centralizado, ocupa tudo em mobile */}
         <div className="flex-1 lg:w-1/2 flex items-center justify-center p-6 lg:p-0 order-1 lg:order-2">
-        {/* Versão mobile da marca - visível apenas em telas pequenas */}
-        <div className="lg:hidden mb-4 flex flex-col items-center text-center">
-          <div className="font-display text-h1 font-semibold tracking-tight text-primary-foreground mb-2">Mirevion</div>
-          <p className="body-sm opacity-80 leading-relaxed max-w-xs text-center">
-            Plataforma de gestão para pequenas e médias empresas.
-          </p>
-        </div>
           <div className="w-full max-w-md card-default rounded-xl border border-border shadow-lg p-8">
             <div className="flex flex-col gap-3 mb-8">
               <div className="font-display text-h2 font-semibold text-foreground tracking-tight">Bem-vindo de volta</div>
