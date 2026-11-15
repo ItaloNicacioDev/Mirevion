@@ -5,7 +5,8 @@ import DashboardPage from "../features/dashboard/DashboardPage";
 import FinanceiroPage from "../features/financeiro/FinanceiroPage";
 import RHPage from "../features/rh/RHPage";
 import DespesasPage from "../features/despesas/DespesasPage";
-import OrganizacaoPage from "../features/organizacao/OrganizacaoPage";
+import OrganizacaoPage from "../features/organicacao/OrganizacaoPage";
+import EmpresaRegistroPage from "../features/organizacao/EmpresaRegistroPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "rh", element: <RHPage /> },
       { path: "despesas", element: <DespesasPage /> },
       { path: "organizacao", element: <OrganizacaoPage /> },
+      { path: "organizacao/registro", element: <EmpresaRegistroPage /> },
     ],
   },
 ]);
