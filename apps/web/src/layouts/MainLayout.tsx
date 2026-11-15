@@ -90,10 +90,10 @@ export default function Layout() {
 
       {/* Sidebar mobile overlay */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={() => setSidebarOpen(false)} />
+        <div className="fixed inset-0 z-50 bg-black/40 lg:hidden backdrop-blur-sm" onClick={() => setSidebarOpen(false)} aria-hidden="true" />
       )}
       {sidebarOpen && (
-        <aside className="fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border flex-col lg:hidden">
+        <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border flex-col lg:hidden transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
           <div className="p-6 flex items-center justify-between">
             <div className="font-display text-lg font-semibold text-foreground tracking-tight">
               Mirevion
