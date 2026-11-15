@@ -74,30 +74,17 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card) => (
           <div key={card.title} className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-              <div className={`w-12 h-12 rounded-3xl ${card.color} flex items-center justify-center`}>
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    {card.icon === "saldo" && (
-                      <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2-3 .895-3-2 1.343-2 3-2z" />
-                    )}
-                    {card.icon === "receitas" && (
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    )}
-                    {card.icon === "despesas" && (
-                      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    )}
-                    {card.icon === "funcionarios" && (
-                      <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    )}
-                  </svg>
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-lg ${card.color.split(" ")[0]}-light flex items-center justify-center`}>
+                  <card.icon className={`w-5 h-5 ${card.color.split(" ")[1]}`} />
                 </div>
                 <div>
                   <div className="body-sm text-muted-foreground mb-1">{card.title}</div>
-                  <div className="body-sm text-muted-foreground">{card.subtitle}</div>
+                  <div className="text-xs text-muted-foreground">{card.subtitle}</div>
                 </div>
               </div>
-              <div className="font-display text-2xl font-semibold text-foreground animate-count-up">{card.value}</div>
+              <div className="font-display text-xl font-semibold text-foreground animate-count-up">{card.value}</div>
             </div>
           </div>
         ))}
