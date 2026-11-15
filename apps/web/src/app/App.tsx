@@ -5,7 +5,7 @@ import DashboardPage from "../features/dashboard/DashboardPage";
 import FinanceiroPage from "../features/financeiro/FinanceiroPage";
 import RHPage from "../features/rh/RHPage";
 import DespesasPage from "../features/despesas/DespesasPage";
-import OrganizacaoPage from "../features/organicacao/OrganizacaoPage";
+import OrganizacaoPage from "../features/organizacao/OrganizacaoPage";
 import EmpresaRegistroPage from "../features/organizacao/EmpresaRegistroPage";
 
 const router = createBrowserRouter([
