@@ -1,7 +1,14 @@
 import PageHeader from "@/components/PageHeader";
+import { useToast } from "@/components/ToastProvider";
 import { Building2, Users } from "lucide-react";
 
 export default function OrganizacaoPage() {
+  const { toast } = useToast();
+
+  const handleSalvarDados = () => {
+    toast("Dados salvos", "Informações da organização atualizadas com sucesso.", "success", 4000);
+  };
+
   return (
     <div className="space-y-8">
       <PageHeader
@@ -106,6 +113,14 @@ export default function OrganizacaoPage() {
               placeholder="—"
             />
           </div>
+        </div>
+        <div className="mt-4 flex justify-end">
+          <button
+            onClick={handleSalvarDados}
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm"
+          >
+            Salvar dados
+          </button>
         </div>
         <p className="mt-4 text-sm text-muted-foreground">
           Os dados da organização ainda não foram preenchidos. Entre em contato com o suporte para completar o cadastro.
