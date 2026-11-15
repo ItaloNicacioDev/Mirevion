@@ -47,34 +47,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="flex flex-col lg:flex-row h-screen">
-        {/* Marca esquerda - SOMENTE em telas grandes (lg+) */}
-        <div className="hidden lg:flex lg:w-1/2 bg-primary flex-col justify-between items-start p-6 lg:p-16 text-primary-foreground order-2 lg:order-1">
-          <div className="flex flex-col gap-8">
-            <div>
-              <div className="font-display text-h1 font-semibold tracking-tight mb-3">Mirevion</div>
-              <p className="body-sm opacity-80 leading-relaxed max-w-sm">
-                Plataforma de gestão para pequenas e médias empresas.
-                Controle financeiro, folha de pagamento e recursos humanos em um só lugar.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 mt-12">
-              <div className="w-2 h-2 rounded-full bg-primary-foreground"></div>
-              <span className="body-sm opacity-70">Sessão segura · criptografada</span>
-            </div>
-          </div>
-          <div className="mt-auto">
-            <div className="flex items-center gap-2 text-sm opacity-60">
-              <span className="font-label">© 2026 Mirevion</span>
-              <span className="opacity-50">·</span>
-              <span className="font-label">Plataforma Empresarial</span>
-            </div>
-          </div>
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4 lg:p-8">
+      <div className="w-full max-w-md card-default rounded-xl border border-border shadow-lg p-8">
+        <div className="flex flex-col items-center gap-4 mb-8">
+          <div className="font-display text-h1 font-semibold tracking-tight mb-2">Mirevion</div>
+          <p className="body-sm opacity-80 leading-relaxed max-w-sm text-center">
+            Plataforma de gestão para pequenas e médias empresas.
+            Controle financeiro, folha de pagamento e recursos humanos em um só lugar.
+          </p>
         </div>
 
-        {/* Formulário de login - centralizado, ocupa tudo em mobile */}
-        <div className="flex-1 lg:w-1/2 flex items-center justify-center p-6 lg:p-0 order-1 lg:order-2">
+        {error && (
+          <div className="mb-6 p-3.5 rounded-md bg-red-50 text-red-700 text-sm border border-red-100">
+            {error}
+          </div>
+        )}
           <div className="w-full max-w-md card-default rounded-xl border border-border shadow-lg p-8">
             <div className="flex flex-col gap-3 mb-8">
               <div className="font-display text-h2 font-semibold text-foreground tracking-tight">Bem-vindo de volta</div>
