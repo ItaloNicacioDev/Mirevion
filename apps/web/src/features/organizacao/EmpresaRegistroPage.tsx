@@ -36,12 +36,10 @@ export default function EmpresaRegistroPage() {
 
       if (restante <= 0) {
         setTempoRestante(0);
-        setFormValido(true);
-        clearInterval(interval);
+                clearInterval(interval);
       } else {
         setTempoRestante(Math.ceil(restante / 1000));
-        setFormValido(false);
-      }
+              }
     }, 1000);
 
     return () => clearInterval(interval);
@@ -132,8 +130,7 @@ export default function EmpresaRegistroPage() {
   const handleCancelarDemo = () => {
     setDemoMode(false);
     setRegistroIniciadoEm(null);
-    setFormValido(false);
-    toast("Modo demo desativado.", "Informação", "info", 3000);
+        toast("Modo demo desativado.", "Informação", "info", 3000);
   };
 
   const podeEditar = !demoMode || tempoRestante === 0;
