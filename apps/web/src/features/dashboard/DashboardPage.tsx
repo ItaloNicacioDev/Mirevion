@@ -1,14 +1,12 @@
+import PageHeader from "@/components/PageHeader";
+
 export default function DashboardPage() {
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="font-display text-h1 font-semibold text-foreground tracking-tight">
-          Visão geral
-        </h1>
-        <p className="body-sm text-muted-foreground mt-2">
-          Acompanhe os indicadores da sua organização. Dados atualizados em tempo real.
-        </p>
-      </div>
+      <PageHeader
+        title="Visão geral"
+        description="Acompanhe os indicadores da sua organização. Dados atualizados em tempo real."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="card-default rounded-lg border border-border shadow-sm p-6">
