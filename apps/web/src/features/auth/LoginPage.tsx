@@ -165,6 +165,13 @@ export default function LoginPage() {
               <span className="block font-medium text-foreground">financeiro@mirevion.com</span>
             </p>
           </div>
+          <button
+            type="button"
+            onClick={() => navigate("/organizacao/registro")}
+            className="w-full py-3 border border-accent text-accent rounded-md text-sm font-medium hover:bg-accent/10 transition-colors"
+          >
+            Cadastre a sua empresa · Controle completo do SAAS
+          </button>
           <div className="mt-6 text-xs text-muted-foreground text-center">
             © 2026 Mirevion · Plataforma Empresarial
           </div>
