@@ -1,12 +1,17 @@
+import PageHeader from "@/components/PageHeader";
+
 export default function RHPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-display text-h1 font-semibold text-foreground tracking-tight">Recursos Humanos</h1>
-        <p className="body-sm text-muted-foreground mt-2">
-          Cadastro de funcionários, folha de pagamento e dados da equipe.
-        </p>
-      </div>
+      <PageHeader
+        title="Recursos Humanos"
+        description="Cadastro de funcionários, folha de pagamento e dados da equipe."
+        action={
+          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-on-accent text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
+            Novo funcionário
+          </button>
+        }
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="card-default rounded-lg border border-border shadow-sm p-6">
@@ -40,9 +45,6 @@ export default function RHPage() {
       <div className="card-default rounded-lg border border-border shadow-sm p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-display text-h3 font-semibold text-foreground">Funcionários</h2>
-          <button className="inline-flex items-center gap-2 px-3 py-2 bg-accent text-on-accent text-sm font-medium rounded-md hover:bg-accent/90 transition-colors">
-            Novo funcionário
-          </button>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
