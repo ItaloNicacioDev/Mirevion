@@ -1,6 +1,6 @@
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, LogOut, LayoutDashboard, CreditCard, Users, Wallet, Building2 } from "lucide-react";
+import { Menu, X, LogOut, LayoutDashboard, CreditCard, Users, Wallet, Building2, Link } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Visão geral", icon: LayoutDashboard },
@@ -8,6 +8,7 @@ const navItems = [
   { href: "/rh", label: "Recursos Humanos", icon: Users },
   { href: "/despesas", label: "Despesas", icon: Wallet },
   { href: "/organizacao", label: "Organização", icon: Building2 },
+  { href: "/integracao", label: "Integrações", icon: Link },
 ];
 
 export default function Layout() {
