@@ -9,11 +9,14 @@ import OrganizacaoPage from "../features/organizacao/OrganizacaoPage";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
     path: "/",
     element: <Layout />,
     children: [
       { index: true, element: <DashboardPage /> },
-      { path: "login", element: <LoginPage /> },
       { path: "financeiro", element: <FinanceiroPage /> },
       { path: "rh", element: <RHPage /> },
       { path: "despesas", element: <DespesasPage /> },
