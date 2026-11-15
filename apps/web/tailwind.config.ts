@@ -36,6 +36,10 @@ export default {
           DEFAULT: "var(--color-destructive)",
           foreground: "var(--color-on-destructive)",
         },
+        "destructive-light": "var(--color-destructive-light)",
+        "success-light": "var(--color-success-light)",
+        "warning-light": "var(--color-warning-light)",
+        "primary-light": "var(--color-primary-light)",
         success: {
           DEFAULT: "var(--color-success)",
           foreground: "var(--color-on-success)",
