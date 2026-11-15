@@ -1,19 +1,18 @@
 import PageHeader from "@/components/PageHeader";
 import AnimatedLineChart from "@/components/AnimatedLineChart";
 import AnimatedBarChart from "@/components/AnimatedBarChart";
-import { ArrowRight, Banknote, Briefcase, Calendar, Plus, TrendingUp, User } from "lucide.react";
 
 const cards = [
-  { title: "Saldo disponível", value: "R$ 0,00", icon: Banknote, color: "text-primary", subtitle: "Disponível para uso imediato" },
-  { title: "Receitas este mês", value: "R$ 0,00", icon: TrendingUp, color: "text-success", subtitle: "Entradas registradas no período" },
-  { title: "Despesas pendentes", value: "R$ 0,00", icon: Calendar, color: "text-warning", subtitle: "Aguardando confirmação de pagamento" },
-  { title: "Funcionários ativos", value: "0", icon: User, color: "text-foreground", subtitle: "Colaboradores com vínculo ativo" },
+  { title: "Saldo disponível", value: "R$ 0,00", color: "text-primary", subtitle: "Disponível para uso imediato" },
+  { title: "Receitas este mês", value: "R$ 0,00", icon: "receitas", color: "text-success", subtitle: "Entradas registradas no período" },
+  { title: "Despesas pendentes", value: "R$ 0,00", icon: "despesas", color: "text-warning", subtitle: "Aguardando confirmação de pagamento" },
+  { title: "Funcionários ativos", value: "0", icon: "funcionarios", color: "text-foreground", subtitle: "Colaboradores com vínculo ativo" },
 ];
 
 const recentItems = [
-  { title: "Adicionar primeira transação", description: "Comece registrando uma receita ou despesa", action: "Nova transação", icon: Plus },
-  { title: "Cadastrar primeiro funcionário", description: "Inclua colaboradores no controle de folha", action: "Novo funcionário", icon: Briefcase },
-  { title: "Definir orçamento mensal", description: "Estabeleça limites para categorias de despesa", action: "Definir orçamento", icon: Briefcase },
+  { title: "Adicionar primeira transação", description: "Comece registrando uma receita ou despesa", action: "Nova transação" },
+  { title: "Cadastrar primeiro funcionário", description: "Inclua colaboradores no controle de folha", action: "Novo funcionário" },
+  { title: "Definir orçamento mensal", description: "Estabeleça limites para categorias de despesa", action: "Definir orçamento" },
 ];
 
 export default function DashboardPage() {
@@ -45,7 +44,12 @@ export default function DashboardPage() {
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-lg bg-${card.color.split("/")[0] === "text-success" ? "success" : card.color.split("/")[0] === "text-warning" ? "warning" : card.color.split("/")[0] === "text-primary" ? "primary" : "foreground"}-light flex items-center justify-center`}>
-                  <card.icon className={`w-5 h-5 ${card.color}`} />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {card.color === "text-primary" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2-3 .895-3-2 1.343-2 3-2z" />}
+                    {card.color === "text-success" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />}
+                    {card.color === "text-warning" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
+                    {card.color === "text-foreground" && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />}
+                  </svg>
                 </div>
                 <div>
                   <div className="body-sm text-muted-foreground mb-1">{card.title}</div>
@@ -62,9 +66,6 @@ export default function DashboardPage() {
         <div className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-display text-h3 font-semibold text-foreground">Faturamento mensal</h2>
-            <button className="text-sm text-primary hover:text-primary/80 flex items-center gap-1">
-              Ver tudo <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
           <AnimatedLineChart data={dadosGraficoLinha} />
         </div>
@@ -81,15 +82,14 @@ export default function DashboardPage() {
         <div className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left lg:col-span-2">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-display text-h3 font-semibold text-foreground">Atividade recente</h2>
-            <button className="text-sm text-primary hover:text-primary/80 flex items-center gap-1">
-              Ver tudo <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
           <div className="space-y-4">
             {recentItems.map((item, i) => (
               <div key={i} className="flex items-start gap-3 animate-fade-up animation-delay-100">
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  <item.icon className="w-4 h-4" />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-foreground font-medium">{item.title}</div>
@@ -108,13 +108,15 @@ export default function DashboardPage() {
           <h2 className="font-display text-h3 font-semibold text-foreground mb-6">Próximos passos</h2>
           <div className="grid grid-cols-1 gap-4">
             {[
-              { title: "Conectar banco", description: "Importe transações automaticamente", icon: Banknote },
-              { title: "Configurar categorias", description: "Organize receitas e despesas", icon: Briefcase },
-              { title: "Convidar equipe", description: "Adicione colaboradores à organização", icon: User },
+              { title: "Conectar banco", description: "Importe transações automaticamente" },
+              { title: "Configurar categorias", description: "Organize receitas e despesas" },
+              { title: "Convidar equipe", description: "Adicione colaboradores à organização" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted border border-transparent hover:bg-muted/50 hover:border-border transition-colors animate-fade-up animation-delay-200">
                 <div className="w-10 h-10 rounded-lg bg-card flex items-center justify-center shadow-sm">
-                  <item.icon className="w-5 h-5 text-primary" />
+                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
                 <div>
                   <div className="text-sm font-medium text-foreground">{item.title}</div>
