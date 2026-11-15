@@ -119,13 +119,7 @@ export default function IntegracaoPage() {
     <div className="space-y-8">
       <PageHeader
         title="Integrações"
-        description={
-          <>
-            Conecte o Mirevion aos serviços que sua empresa já usa —{" "}
-            <strong>WhatsApp</strong>, <strong>e-mail</strong>,{" "}
-            <strong>n8n</strong> e outros plugins para automatizar a operação.
-          </>
-        }
+        description="Conecte o Mirevion aos serviços que sua empresa já usa — WhatsApp, e-mail, n8n e outros plugins para automatizar a operação."
         action={
           <button
             className="inline-flex items-center gap-2 px-4 py-2.5 bg-accent text-accent-foreground rounded-md font-medium hover:bg-accent/90 transition-colors shadow-sm"
