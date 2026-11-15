@@ -10,10 +10,10 @@ export default function OrganizacaoPage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 <Building2 className="w-5 h-5 text-primary" />
               </div>
               <div>
@@ -24,10 +24,10 @@ export default function OrganizacaoPage() {
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground">
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors duration-300">
                 <Users className="w-5 h-5" />
               </div>
               <div>
@@ -38,10 +38,10 @@ export default function OrganizacaoPage() {
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground">
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors duration-300">
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <div>
@@ -52,10 +52,10 @@ export default function OrganizacaoPage() {
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground">
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors duration-300">
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <div>
