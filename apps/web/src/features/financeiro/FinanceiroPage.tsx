@@ -1,6 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import { useToast } from "@/components/ToastProvider";
-import { ArrowRight, Banknote, CreditCard, Plus, TrendingUp, Wallet } from "lucide-react";
+import { Banknote, Plus, TrendingUp, Wallet } from "lucide-react";
 
 export default function FinanceiroPage() {
   const { toast } = useToast();
