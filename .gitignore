@@ -78,3 +78,4 @@ pubspec.lock
 
 # macOS
 ._*
+apps/web/write_financeiro.py
