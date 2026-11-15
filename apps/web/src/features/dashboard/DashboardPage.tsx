@@ -1,18 +1,45 @@
 import PageHeader from "@/components/PageHeader";
 import AnimatedLineChart from "@/components/AnimatedLineChart";
 import AnimatedBarChart from "@/components/AnimatedBarChart";
-import {
-  Wallet,
-  TrendingUp,
-  Clock,
-  Users,
-} from "lucide-react";
+import { Wallet, TrendingUp, Clock, Users } from "lucide-react";
 
-const cards = [
-  { title: "Saldo disponível", value: "R$ 0,00", icon: Wallet, color: "bg-primary text-white", subtitle: "Disponível para uso imediato" },
-  { title: "Receitas este mês", value: "R$ 0,00", icon: TrendingUp, color: "bg-success text-white", subtitle: "Entradas registradas no período" },
-  { title: "Despesas pendentes", value: "R$ 0,00", icon: Clock, color: "bg-warning text-white", subtitle: "Aguardando confirmação de pagamento" },
-  { title: "Funcionários ativos", value: "0", icon: Users, color: "bg-foreground text-white", subtitle: "Colaboradores com vínculo ativo" },
+type Card = {
+  title: string;
+  value: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+  subtitle: string;
+};
+
+const cards: Card[] = [
+  {
+    title: "Saldo disponível",
+    value: "R$ 0,00",
+    icon: Wallet,
+    color: "bg-primary text-primary",
+    subtitle: "Disponível para uso imediato",
+  },
+  {
+    title: "Receitas este mês",
+    value: "R$ 0,00",
+    icon: TrendingUp,
+    color: "bg-success text-success",
+    subtitle: "Entradas registradas no período",
+  },
+  {
+    title: "Despesas pendentes",
+    value: "R$ 0,00",
+    icon: Clock,
+    color: "bg-warning text-warning",
+    subtitle: "Aguardando confirmação de pagamento",
+  },
+  {
+    title: "Funcionários ativos",
+    value: "0",
+    icon: Users,
+    color: "bg-foreground text-foreground",
+    subtitle: "Colaboradores com vínculo ativo",
+  },
 ];
 
 const recentItems = [
@@ -47,17 +74,30 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card) => (
           <div key={card.title} className="card-default rounded-xl border border-border shadow-sm p-6 animate-slide-in-left">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-2xl ${card.color.split(" ")[0]} flex items-center justify-center`}>
-                  <card.icon className="w-5 h-5 text-white" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+              <div className={`w-12 h-12 rounded-3xl ${card.color} flex items-center justify-center`}>
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    {card.icon === "saldo" && (
+                      <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2-3 .895-3-2 1.343-2 3-2z" />
+                    )}
+                    {card.icon === "receitas" && (
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                    {card.icon === "despesas" && (
+                      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                    {card.icon === "funcionarios" && (
+                      <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    )}
+                  </svg>
                 </div>
                 <div>
                   <div className="body-sm text-muted-foreground mb-1">{card.title}</div>
                   <div className="body-sm text-muted-foreground">{card.subtitle}</div>
                 </div>
               </div>
-              <div className="font-display text-xl font-semibold text-foreground animate-count-up">{card.value}</div>
+              <div className="font-display text-2xl font-semibold text-foreground animate-count-up">{card.value}</div>
             </div>
           </div>
         ))}
