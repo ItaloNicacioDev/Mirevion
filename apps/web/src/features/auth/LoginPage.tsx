@@ -45,7 +45,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Marca esquerda — visível apenas em telas largas */}
-      <div className="hidden lg:flex lg:w-1/3 bg-primary flex-col justify-between items-start p-12 text-on-primary">
+      <div className="hidden lg:flex lg:w-1/3 bg-primary flex-col justify-between items-start p-12 text-white">
         <div className="flex flex-col gap-8">
           <div>
             <div className="font-display text-h1 font-semibold tracking-tight mb-2">Mirevion</div>
@@ -54,15 +54,15 @@ export default function LoginPage() {
               Controle financeiro, folha de pagamento e recursos humanos em um só lugar.
             </p>
           </div>
-          <div className="flex items-center gap-3 pt-8 border-t border-white/10">
-            <div className="w-2 h-2 rounded-full bg-on-primary"></div>
-            <span className="body-sm opacity-90">Sessão segura · criptografada</span>
+          <div className="flex items-center gap-3 pt-8 border-t border-white/20">
+            <div className="w-2 h-2 rounded-full bg-white"></div>
+            <span className="body-sm opacity-80">Sessão segura · criptografada</span>
           </div>
         </div>
         <div className="mt-12">
-          <div className="flex items-center gap-2 text-sm opacity-80">
+          <div className="flex items-center gap-2 text-sm opacity-70">
             <span className="font-label">© 2026 Mirevion</span>
-            <span className="text-on-primary/50">·</span>
+            <span className="text-white/50">·</span>
             <span className="font-label">Plataforma Empresarial</span>
           </div>
         </div>
