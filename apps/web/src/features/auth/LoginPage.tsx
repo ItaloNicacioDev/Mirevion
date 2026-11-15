@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authService } from "@/services/auth";
 import { Eye, EyeOff } from "lucide-react";
@@ -12,6 +12,13 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [selectedAdmin, setSelectedAdmin] = useState<{ email: string; label: string } | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("mirevion_token");
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleSelectAdmin = (adminEmail: string) => {
     setEmail(adminEmail);
