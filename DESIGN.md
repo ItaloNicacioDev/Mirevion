@@ -48,13 +48,13 @@ typography:
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: "0em"
-  body_md:
+  bodyMd:
     fontFamily: "Inter"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "0em"
-  body_sm:
+  body-sm:
     fontFamily: "Inter"
     fontSize: "0.875rem"
     fontWeight: 400
@@ -121,12 +121,12 @@ components:
     textColor: "{colors.foreground}"
     rounded: "{rounded.sm}"
     padding: "8px 12px"
-    typography: "{typography.body-md}"
+    typography: "{typography.bodyMd}"
   card-default:
     backgroundColor: "{colors.card}"
     rounded: "{rounded.lg}"
   badge-status:
-    backgroundColor: "{colors.muted}"
+    backgroundColor: "#EDE9E0"
     textColor: "#5C574F"
     rounded: "{rounded.full}"
     padding: "2px 8px"
