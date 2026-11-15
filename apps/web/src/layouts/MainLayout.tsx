@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, LogOut } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Dashboard" },
+  { href: "/", label: "Visão geral" },
   { href: "/financeiro", label: "Financeiro" },
   { href: "/rh", label: "Recursos Humanos" },
   { href: "/despesas", label: "Despesas" },
@@ -59,7 +59,7 @@ export default function Layout() {
       {/* Conteúdo principal */}
       <div className="flex-1 flex flex-col min-h-0">
         {/* Header mobile + desktop top */}
-        <header className="sticky top-0 z-10 bg-card border-b border-border px-6 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-20 bg-card border-b border-border px-6 py-4 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <button
               className="lg:hidden p-2 text-muted-foreground hover:text-foreground rounded-sm hover:bg-muted"
@@ -83,7 +83,7 @@ export default function Layout() {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-6 lg:p-8">
+        <main className="flex-1 overflow-y-auto p-6 lg:p-8 shrink-0">
           <Outlet />
         </main>
       </div>
