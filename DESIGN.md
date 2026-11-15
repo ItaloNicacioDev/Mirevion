@@ -6,22 +6,23 @@ colors:
   background: "#F7F5F0"
   foreground: "#3A3734"
   card: "#FFFFFF"
-  card_foreground: "#3A3734"  primary: "#1F3A5F"
-  on_primary: "#FFFFFF"
+  card-foreground: "#3A3734"
+  primary: "#1F3A5F"
+  on-primary: "#FFFFFF"
   secondary: "#C9C3B8"
-  on_secondary: "#3A3734"
+  on-secondary: "#3A3734"
   accent: "#B45309"
-  on_accent: "#FFFFFF"
+  on-accent: "#FFFFFF"
   muted: "#EDE9E0"
-  muted_foreground: "#7A756D"
+  muted-foreground: "#5C574F"
   border: "#D8D3C8"
   ring: "#1F3A5F"
   destructive: "#B91C1C"
-  on_destructive: "#FFFFFF"
+  on-destructive: "#FFFFFF"
   success: "#15803D"
-  on_success: "#FFFFFF"
+  on-success: "#FFFFFF"
   warning: "#D97706"
-  on_warning: "#FFFFFF"
+  on-warning: "#FFFFFF"
 typography:
   display:
     fontFamily: "DM Sans"
@@ -95,21 +96,21 @@ shadow:
   md: "0px 4px 6px -1px rgb(0 0 0 / 0.06), 0px 2px 4px -2px rgb(0 0 0 / 0.04)"
   lg: "0px 10px 15px -3px rgb(0 0 0 / 0.08), 0px 4px 6px -4px rgb(0 0 0 / 0.05)"
 components:
-  button_primary:
+  button-primary:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.on_accent}"
     rounded: "{rounded.md}"
     padding: "8px 16px"
     typography: "{typography.label}"
-  button_primary_hover:
+  button-primary-hover:
     backgroundColor: "#934307"
-  button_secondary:
+  button-secondary:
     backgroundColor: "{colors.card}"
     textColor: "{colors.primary}"
     rounded: "{rounded.md}"
     padding: "8px 16px"
     typography: "{typography.label}"
-  button_ghost:
+  button-ghost:
     backgroundColor: transparent
     textColor: "{colors.muted_foreground}"
     rounded: "{rounded.md}"
