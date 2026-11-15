@@ -98,7 +98,7 @@ shadow:
 components:
   button-primary:
     backgroundColor: "{colors.accent}"
-    textColor: "{colors.on_accent}"
+    textColor: "{colors.on-accent}"
     rounded: "{rounded.md}"
     padding: "8px 16px"
     typography: "{typography.label}"
@@ -112,20 +112,20 @@ components:
     typography: "{typography.label}"
   button-ghost:
     backgroundColor: transparent
-    textColor: "{colors.muted_foreground}"
+    textColor: "{colors.muted-foreground}"
     rounded: "{rounded.md}"
     padding: "8px 12px"
     typography: "{typography.label}"
-  input_default:
+  input-default:
     backgroundColor: "{colors.card}"
     textColor: "{colors.foreground}"
     rounded: "{rounded.sm}"
     padding: "8px 12px"
     typography: "{typography.body_md}"
-  card_default:
+  card-default:
     backgroundColor: "{colors.card}"
     rounded: "{rounded.lg}"
-  badge_status:
+  badge-status:
     backgroundColor: "{colors.muted}"
     textColor: "#5C574F"
     rounded: "{rounded.full}"
