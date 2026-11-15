@@ -27,8 +27,8 @@ export default function Layout() {
 
   useEffect(() => {
     const token = localStorage.getItem("mirevion_token");
-    if (token && location.pathname !== "/login") {
-      // Token já existe, sessão ativa
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
     }
   }, [location]);
 
@@ -170,3 +170,5 @@ export default function Layout() {
     </div>
   );
 }
+
+// Bloco temporario para verificar - sera removido
