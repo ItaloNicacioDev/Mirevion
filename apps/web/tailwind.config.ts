@@ -15,6 +15,9 @@ export default {
           DEFAULT: "var(--color-primary)",
           foreground: "var(--color-on-primary)",
         },
+        "primary-light": "var(--color-primary-light)",
+        "success-light": "var(--color-success-light)",
+        "warning-light": "var(--color-warning-light)",
         secondary: {
           DEFAULT: "var(--color-secondary)",
           foreground: "var(--color-on-secondary)",
