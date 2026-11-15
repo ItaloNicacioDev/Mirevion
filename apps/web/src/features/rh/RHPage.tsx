@@ -8,52 +8,52 @@ export default function RHPage() {
         title="Recursos Humanos"
         description="Cadastro de funcionários, folha de pagamento e dados da equipe."
         action={
-          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
+          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm">
             Novo funcionário <Plus className="w-4 h-4" />
           </button>
         }
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 <User className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Funcionários ativos</div>
-                <div className="body-sm text-muted-foreground">Com vínculo ativo</div>
+                <div className="text-xs text-muted-foreground">Com vínculo ativo</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-foreground">0</div>
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-success-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-success-light flex items-center justify-center group-hover:bg-success group-hover:text-success-foreground transition-colors duration-300">
                 <Banknote className="w-5 h-5 text-success" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Folha este mês</div>
-                <div className="body-sm text-muted-foreground">Pagamentos processados</div>
+                <div className="text-xs text-muted-foreground">Pagamentos processados</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-success">R$ 0,00</div>
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-warning-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-warning-light flex items-center justify-center group-hover:bg-warning group-hover:text-warning-foreground transition-colors duration-300">
                 <Calendar className="w-5 h-5 text-warning" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Férias vencidas</div>
-                <div className="body-sm text-muted-foreground">Colaboradores</div>
+                <div className="text-xs text-muted-foreground">Colaboradores</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-warning">0</div>
