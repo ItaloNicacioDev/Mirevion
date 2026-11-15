@@ -8,52 +8,52 @@ export default function FinanceiroPage() {
         title="Financeiro"
         description="Controle de receitas, despesas e saldo da sua organização."
         action={
-          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors">
+          <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors shadow-sm">
             Nova transação <Plus className="w-4 h-4" />
           </button>
         }
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 <Banknote className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Saldo disponível</div>
-                <div className="body-sm text-muted-foreground">Última atualização</div>
+                <div className="text-xs text-muted-foreground">Última atualização</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-foreground">R$ 0,00</div>
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-success-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-success-light flex items-center justify-center group-hover:bg-success group-hover:text-success-foreground transition-colors duration-300">
                 <TrendingUp className="w-5 h-5 text-success" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Receitas este mês</div>
-                <div className="body-sm text-muted-foreground">Entradas no período</div>
+                <div className="text-xs text-muted-foreground">Entradas no período</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-success">R$ 0,00</div>
           </div>
         </div>
 
-        <div className="card-default rounded-xl border border-border shadow-sm p-6">
+        <div className="card-default rounded-xl border border-border shadow-sm p-6 hover:shadow-md transition-shadow duration-200 group">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-warning-light flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-warning-light flex items-center justify-center group-hover:bg-warning group-hover:text-warning-foreground transition-colors duration-300">
                 <Wallet className="w-5 h-5 text-warning" />
               </div>
               <div>
                 <div className="body-sm text-muted-foreground mb-1">Despesas pendentes</div>
-                <div className="body-sm text-muted-foreground">Itens a pagar</div>
+                <div className="text-xs text-muted-foreground">Itens a pagar</div>
               </div>
             </div>
             <div className="font-display text-xl font-semibold text-warning">R$ 0,00</div>
