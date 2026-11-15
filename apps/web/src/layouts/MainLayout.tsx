@@ -10,7 +10,6 @@ const navItems = [
   { href: "/organizacao", label: "Organização", icon: Building2 },
 ];
 
-
 export default function Layout() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -41,9 +40,7 @@ export default function Layout() {
         <div className="flex flex-col h-full">
           <div className={`p-3 shrink-0 ${collapsed ? "p-2" : "p-6"}`}>
             {!collapsed && (
-              <div className="font-display text-xl font-semibold text-foreground tracking-tight mb-8">
-                Mirevion
-              </div>
+              <div className="font-display text-xl font-semibold text-foreground tracking-tight mb-8">Mirevion</div>
             )}
             {collapsed && (
               <button
@@ -65,10 +62,7 @@ export default function Layout() {
                     to={item.href}
                     end={item.href === "/"}
                     className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${isActive ? "bg-accent text-on-accent" : "text-muted-foreground hover:bg-muted hover:text-foreground"} ${
-                        collapsed ? "justify-center" : ""
-                      }`
-                    }
+                      `flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${isActive ? "bg-accent text-on-accent" : "text-muted-foreground hover:bg-muted hover:text-foreground"} ${collapsed ? "justify-center" : ""}`}
                   >
                     <Icon className={`w-5 h-5 ${collapsed ? "mx-auto" : ""}`} />
                     {!collapsed && <span>{item.label}</span>}
@@ -170,5 +164,3 @@ export default function Layout() {
     </div>
   );
 }
-
-// Bloco temporario para verificar - sera removido
